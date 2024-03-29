@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantity Inc/Dec</title>
+    <style>
+        body{
+            background-color:#f7f6f6;
+        }
+
+        .product-card{
+            background-color:#fff;
+            width:200px;
+            border-radius:20px;
+            box-shadow:0 0 10px rgba(0, 0, 0,0.2);
+            display: block;
+            margin: 30px auto;
+            padding:5px;
+        }
+    .shoees-img{
+        height:100px;
+        display : block;
+        margin: 3px auto;
+        border-radius:20px;
+        background-image: linear-gradient( 135deg, #ABDCFF 10%, #0396FF 100%);
+        padding: 10px 40px;
+    }
+    .product-title{
+        font-size:18px;
+    }
+
+    .card-body{
+        margin-left:5px;
+    }
+
+    .product-description{
+        font-size:10px;
+    }
+    .product-price{
+        font-weight:bold;
+        font-size: 20px;
+    }
+    .btn-buy-now{
+        background-image: linear-gradient( 135deg, #ABDCFF 10%, #0396FF 100%);
+        border:none;
+        color:white;
+        border-radius: 20px;
+        padding:5px 20px;
+        display:block;
+        margin:10px auto;
+    }
+
+    .btn-quantity{
+        height:25px;
+    }
+    .quantity-btn-container{
+        display: flex;
+        justify-content:center;
+        align-items:center;
+        cursor:pointer;
+    }
+    .quantity-text{
+        font-size:25px;
+        margin: auto 10px;
+
+    }
+
+    </style>
+</head>
+<body>
+    <div class="product-card">
+        <img src="women shoees.png" class="shoees-img"/>
+        <div  class="card-body">
+
+        <h1 class="product-title">Womens yellow shoees</h1>
+        <p class="product-description">
+            stylish womem shoees,court sandle.prfect size available.
+        </p>
+        <p class="product-price">
+            ₹400/-
+        </p>
+        <p id="show-quantity">
+            1*500
+        </p>
+        <p id="show-total">
+            Total: 500
+        </p>
+
+        <div class="quantity-btn-container">
+            <img src="minus.png" class="btn-quantity"  onclick="dec()"/>
+            <span class="quantity-text" id="quantity-text">1</span>
+            <img src="plus.png" class="btn-quantity" onclick="inc()"/>
+
+        </div>
+        <button type="button" class ="btn-buy-now">
+            Buy now
+        </button>
+    </div>
+    </div>
+    <script>
+        function inc(){
+        
+            const quantityText = document.getElementById('quantity-text');
+            const showQuantity = document.getElementById("show-quantity");
+            const showTotal = document.getElementById("show-total");
+            const quantity= parseInt(quantityText.innerText);
+             if(quantity<10)
+             {
+                quantityText.innerText= quantity+1;
+             }
+                else
+             {
+                alert("you can't add more than 10 items");
+        }
+        showQuantity.innerText = `${quantity} * 400`;
+        showTotal.innerText = `Total: ${quantity * 400}`;
+    }
+    
+    
+        
+        function dec(){
+            const quantityText = document.getElementById('quantity-text');
+            const showQuantity = document.getElementById("show-quantity");
+            const showTotal = document.getElementById("show-total");
+            const quantity= parseInt(quantityText.innerText);
+            if(quantity>1){
+            quantityText.innerText = quantity-1;
+        }
+        else{
+            alert("you can't add less than 1 item");
+        }
+        showQuantity.innerText = `${quantity} * 400`;
+        showTotal.innerText = `Total: ${quantity * 400}`;
+
+
+        }
+    </script>
+    
+</body>
+</html>
